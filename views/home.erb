@@ -1,7 +1,7 @@
 <h2>Artists</h2>
 
-<% @names.each do |artist_info| %>
+<% @names.each do |artist| %>
   <li>
-    <a href="/artists/<%= artist_info[1]%>"><%= artist_info[0] %></a>
+    <a href="/artists/<%= artist[1]%>"><%= artist[0] %></a>
   </li>
 <% end %>
