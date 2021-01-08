@@ -26,7 +26,8 @@ end
 
 # binding.pry
 get '/albums/:id' do
-  puts params[:username]
+  @tracks = DB.execute("SELECT tracks.name, tracks.id FROM tracks JOIN albums ON albums.id = tracks.album_id WHERE album_id = ?", params[:id].to_i)
+  @album_name = DB.execute("SELECT title FROM albums WHERE id = ?", params[:id]).flatten[0]
   erb :album
 end
 
