@@ -1,0 +1,10 @@
+<ul>
+  <li>Track ID: <%= @track['id'] %></li>
+  <li>Track Name: <%= @track['name'] %></li>
+  <li>Album: <%= DB.execute("SELECT title FROM albums WHERE id = ?", @track['album_id']).flatten[0]['title'] %></li>
+  <li>Media Type ID: <%= @track['media_type_id'] %></li>
+  <li>Composer: <%= @track['composer'] %></li>
+  <li>Duration: <%= @track['milliseconds']%>ms</li>
+  <li>Size: <%= @track['bytes']%>bytes</li>
+  <li>Unit Price: <%= @track['unit_price'] %></li>
+</ul>

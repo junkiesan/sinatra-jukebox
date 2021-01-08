@@ -1,6 +1,6 @@
 <h2><%= @album_name %></h2>
 <% @tracks.each do |track| %>
 <li>
-  <a href="/track/<%= track[1] %>"> <%= track[0] %> </a>
+  <a href="/tracks/<%= track[1] %>"> <%= track[0] %> </a>
 </li>
 <% end %>

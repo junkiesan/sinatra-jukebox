@@ -26,12 +26,14 @@ end
 
 # binding.pry
 get '/albums/:id' do
+  DB.results_as_hash = false
   @tracks = DB.execute("SELECT tracks.name, tracks.id FROM tracks JOIN albums ON albums.id = tracks.album_id WHERE album_id = ?", params[:id].to_i)
   @album_name = DB.execute("SELECT title FROM albums WHERE id = ?", params[:id]).flatten[0]
   erb :album
 end
 
 get '/tracks/:id' do
-  puts params[:username]
+  DB.results_as_hash = true
+  @track = DB.execute("SELECT * FROM tracks WHERE id = ?", params[:id].to_i).flatten[0]
   erb :track
 end
