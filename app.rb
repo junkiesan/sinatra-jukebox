@@ -14,16 +14,20 @@ end
 
 get '/' do
   @names = DB.execute("SELECT name, id FROM artists").sort
-  SELECT * artists
   erb :home
 end
 
-get '/about' do
-  erb :about
+get '/artists/:id' do
+  erb :artist
 end
 
 # binding.pry
-get '/team/:username' do
+get '/albums/:id' do
   puts params[:username]
-  "The user is #{params[:username]}"
+  erb :album
+end
+
+get '/tracks/:id' do
+  puts params[:username]
+  erb :track
 end
