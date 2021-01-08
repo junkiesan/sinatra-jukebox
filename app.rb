@@ -13,8 +13,9 @@ configure :development do
 end
 
 get '/' do
-  @usernames = [ 'ssaunier', 'Papillard' ]
-  erb :index
+  @names = DB.execute("SELECT name, id FROM artists").sort
+  SELECT * artists
+  erb :home
 end
 
 get '/about' do
