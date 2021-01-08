@@ -18,6 +18,9 @@ get '/' do
 end
 
 get '/artists/:id' do
+  DB.results_as_hash = false
+  @albums = DB.execute("SELECT albums.title, albums.id FROM albums JOIN artists ON artists.id = albums.artist_id WHERE artist_id = ?", params[:id].to_i)
+  @artist_name = DB.execute("SELECT name FROM artists WHERE id = ?", params[:id].to_i).flatten[0]
   erb :artist
 end
 

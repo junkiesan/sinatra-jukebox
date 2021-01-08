@@ -1,6 +1,6 @@
-<p>About me:</p>
-<ul>
-<li>Dev</li>
-<li>Mentor</li>
-<li>Father</li>
-</ul>
+<h2><%= @artist_name %></h2>
+<% @albums.each do |album| %>
+<li>
+  <a href="/albums/<%= album[1] %>"> <%= album[0] %> </a>
+</li>
+<% end %>
